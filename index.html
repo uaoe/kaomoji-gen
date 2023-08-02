@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+        <div id="app">
+            <p> {{kao}}</p>
+            <button v-on:click="generateKao">Generate</button> 
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+            const { createApp } = Vue
+            const app = createApp({
+                data(){
+                    return{
+                        kao: ''
+                    }
+                },
+                methods:{
+                    generateKao(){
+                        let eyes = [['^','^'],['≧','≦'],['¯','¯'],['-','-'],['´ ',' `'],['￢','￢'],['・','・'],[';',';'],['⌣̀','⌣́'],['＞','＜']
+                        ,['⇀','↼'],['눈','눈'],['ᗒ','ᗕ'],['ಥ','ಥ'],['ఠ','ఠ'],['◣','◢'],['≖','≖'],['◕','◕'],['ಠ','ಠ'],['⎔','⎔'],['ᓀ','ᓀ'],[' ͡°',' ͡°'],
+                        ['ᄑ','ᄑ'],['⌐■','■']];
+                        let mouth = ['◡','ω','▿','︶','ᗜ','꒳','ヮ',' ','∀','з','З','³','_','.','Д','﹏','ᗣ','︿','O','‸','益','ᴥ','(ｴ)','皿'
+                        ,'⌒',' ͜ʖ'];
+                        let outline = [['(',')']]
+
+                        let selectEye = eyes[(Math.floor(Math.random() * eyes.length))];
+                        let selectMouth = mouth[(Math.floor(Math.random() * mouth.length))] ;
+                        let selectOutline = outline[(Math.floor(Math.random() * outline.length))];
+                        console.log(selectEye);
+
+                        this.kao = selectOutline[0]+selectEye[0]+selectMouth+selectEye[1]+selectOutline[1];
+                    }
+                }
+            })
+            app.mount('#app')
+        </script>
+    </body>
+</html>
